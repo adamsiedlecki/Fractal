@@ -1,13 +1,10 @@
-import fractal.FractalTree;
-import frame.StandardFrame;
-
-import java.time.LocalDateTime;
+import builder.FractalBuilder;
 
 public class Main {
 
     public static void main(String[] args) {
-        int angleChange = 30;
-        StandardFrame standardFrame = new StandardFrame("Fractal Tree", new FractalTree(angleChange,true));
-        standardFrame.takeScreenshot("fractal_tree_screen_angle_"+angleChange+"_time_"+ System.currentTimeMillis());
+        //FractalBuilder.getFractalTreeAllDegrees();
+        //FractalBuilder.getFractalTree30Degrees();
+        FractalBuilder.getSchrinkingTriangle();
     }
 }

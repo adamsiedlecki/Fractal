@@ -32,21 +32,24 @@ public class FractalTree implements FractalDrawer {
     }
 
     private void paintFractal(int length, int angleStart, int x, int y, Graphics g){
-        System.out.println("RADIANS: "+Math.toRadians(angleStart));
-        System.out.println("SIN: "+Math.cos(Math.toRadians(angleStart)));
-        System.out.println("COS: "+Math.cos(Math.toRadians(angleStart)));
+        System.out.println("RADIANS: " + Math.toRadians(angleStart));
+        System.out.println("SIN: " + Math.cos(Math.toRadians(angleStart)));
+        System.out.println("COS: " + Math.cos(Math.toRadians(angleStart)));
 
-        int xmove = (int) (Math.cos(Math.toRadians(angleStart))*length);
-        int ymove = (int) (Math.sin(Math.toRadians(angleStart))*length);
+        int xmove = (int) (Math.cos(Math.toRadians(angleStart)) * length);
+        int ymove = (int) (Math.sin(Math.toRadians(angleStart)) * length);
 
         //sleepMillis(1);
         g.setColor(Color.WHITE);
-        System.out.println("x: "+x+" y: "+y+" xmove:"+xmove+" ymove: "+ymove);
-        g.drawLine(x,y,(x+xmove), (y+ymove));
+        System.out.println("x: " + x + " y: " + y + " xmove:" + xmove + " ymove: " + ymove);
+        g.setFont(new Font("Bungee Inline", Font.BOLD, 20));
+        g.drawString("fractal fun", 60, 60);
+        g.drawLine(x, y, (x + xmove), (y + ymove));
 
-        if(length>=1){
-            paintFractal(length-10,angleStart+angleChange,x+xmove, y+ymove, g);
-            paintFractal(length-10,angleStart-angleChange,x+xmove, y+ymove, g);
+
+        if (length >= 1) {
+            paintFractal(length - 10, angleStart + angleChange, x + xmove, y + ymove, g);
+            paintFractal(length - 10, angleStart - angleChange, x + xmove, y + ymove, g);
         }
     }
 
